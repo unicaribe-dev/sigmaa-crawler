@@ -1,0 +1,13 @@
+annotated-types==0.7.0
+beautifulsoup4==4.12.3
+bs4==0.0.2
+certifi==2024.8.30
+charset-normalizer==3.4.0
+idna==3.10
+pydantic==2.10.0
+pydantic_core==2.27.0
+requests==2.32.3
+setuptools==75.6.0
+soupsieve==2.6
+typing_extensions==4.12.2
+urllib3==2.2.3
