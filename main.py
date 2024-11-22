@@ -1,5 +1,5 @@
 import requests
-from sigmaa_crawler.models import User
+from SigmaaCrawler.models import User
 from pydantic import ValidationError
 from bs4 import BeautifulSoup
 
@@ -14,10 +14,10 @@ def get_token() -> str:
         base_url + "sistema/login"
     )
 
-    soup = BeautifulSoup(response.text, 'html.parser')
-    token_element = soup.find('input', {'name': 'token'})
+    soup = BeautifulSoup(response.text, "html.parser")
+    token_element = soup.find("input", {"name": "token"})
     if token_element:
-        token_value = token_element.get('value')
+        token_value = token_element.get("value")
         return token_value
     else:
         raise Exception("No se pudo obtener el token")
@@ -36,11 +36,11 @@ def login(credentials: User, token: str) -> None:
     print(credentials.matricula, credentials.contraseña)
 
     payload = {
-        'accion': 'login',
-        'login': credentials.matricula,
-        'password': credentials.contraseña,
-        'struts.token.name': 'token',
-        'token': token
+        "accion": "login",
+        "login": credentials.matricula,
+        "password": credentials.contraseña,
+        "struts.token.name": "token",
+        "token": token
     }
 
     print(f"Payload: {payload}")
@@ -54,6 +54,17 @@ def login(credentials: User, token: str) -> None:
 
     print(response.text)
 
+def logout():
+    """
+    Permite cerrar sesión en el SIGMAA.
+    """
+    
+    response = requests.request(
+        "GET",
+        base_url + "sistema/loginInicio?acción=logout"
+    )
+
+    return response.text
 
 if __name__ == "__main__":
     try:
@@ -74,6 +85,10 @@ if __name__ == "__main__":
         # Se inicia sesión en el SIGMAA
         response = login(credentials, token)
         # El resultado debe ser un HTML con la página dentro del SIGMAA y la sesión iniciada
+        print(response)
+
+        # Se cierra sesión en el SIGMAA
+        response = logout()
         print(response)
 
         
