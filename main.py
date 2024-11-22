@@ -1,5 +1,5 @@
 import requests
-from SigmaaCrawler.models import User
+from sigmaa_crawler.models import User
 from pydantic import ValidationError
 from bs4 import BeautifulSoup
 
