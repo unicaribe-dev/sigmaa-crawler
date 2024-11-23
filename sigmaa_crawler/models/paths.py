@@ -7,6 +7,7 @@ class Path(str, Enum):
     """
     BASE = "https://uclb.ucaribe.edu.mx/sigmaav2"
     LOGIN = "https://uclb.ucaribe.edu.mx/sigmaav2/sistema/login"
+    LOGOUT = "https://uclb.ucaribe.edu.mx/sigmaav2/sistema/loginInicio?accion=logout"
     LOGIN_PAGE = "https://uclb.ucaribe.edu.mx/sigmaav2/sistema/loginInicio"
     ACADEMIC_OFFER = "https://uclb.ucaribe.edu.mx/sigmaav2/inscripciones/OfertaEducativa"
     KARDEX = "https://uclb.ucaribe.edu.mx/sigmaav2/calificaciones/Cardex"
