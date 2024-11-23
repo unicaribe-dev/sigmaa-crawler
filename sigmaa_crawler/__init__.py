@@ -1,4 +1,4 @@
 """Test"""
-from sigmaa_crawler.session import Client as Session
+from sigmaa_crawler.client import Client
 
-__all__ = ['Session']
+__all__ = ['Client']
