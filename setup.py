@@ -11,6 +11,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "requests",
+        "pandas",
         "beautifulsoup4",
     ],
     author="Kenneth Díaz",
